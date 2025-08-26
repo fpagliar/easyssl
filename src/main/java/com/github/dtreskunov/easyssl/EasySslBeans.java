@@ -88,6 +88,8 @@ public class EasySslBeans {
         // Create a custom SSL bundle using the helper's keystore and truststore
         SslBundle sslBundle = new EasySslBundleImpl.SslBundleImpl(helper, sslProperties);
 
+        sslProperties.setBundle(EasySslBundleImpl.BUNDLE_NAME);
+
         return factory -> {
             factory.setSslBundles(new EasySslBundleImpl.SslBundlesImpl(sslBundle));
             factory.setSsl(sslProperties);
